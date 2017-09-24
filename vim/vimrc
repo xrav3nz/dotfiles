@@ -1,0 +1,97 @@
+set nocompatible " be iMproved
+
+" install plugins
+source $HOME/.vim/plug.vim
+
+syntax enable
+colorscheme monokai
+set encoding=utf8
+
+" line numbers
+set number
+
+" with a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = ","
+let g:mapleader = ","
+
+" fast saving
+nmap <leader>w :w!<cr>
+
+" ctrlp config
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_max_files = 0
+let g:ctrlp_max_depth = 40
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|vendor|log|tmp|images)|(\.git)$'
+
+" jk is escape
+inoremap jk <esc>
+
+" hightlight the current line 
+set cursorline
+
+" tab = 2 spaces
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set smarttab
+
+set smartindent
+set autoindent
+
+" visual autocomplete for command menu
+set wildmenu
+
+" redraw only when we need to
+set lazyredraw
+
+" search and highlight as characters are entered
+set incsearch
+set hlsearch
+
+" ignore case when searching
+set ignorecase
+
+" trying to be smart about cases, when searching
+set smartcase
+
+" always show current position
+set ruler
+
+" show matching brackets
+set showmatch
+set mat=2
+
+" no annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" properly disbale sound on errors on MacVim
+if has("gui_macvim")
+    autocmd GUIEnter * set vb t_vb=
+endif
+
+" turn backup off, since most stuff is in SVN, git, etc anyway
+set nobackup
+set nowb
+set noswapfile
+
+" Return to last edit position when opening files (You want this!)
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" Delete trailing white space on save, useful for some filetypes ;)
+fun! CleanExtraSpaces()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    silent! %s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfun
+
+if has("autocmd")
+    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+endif
