@@ -1,0 +1,15 @@
+### macOS ###
+
+.DS_Store
+._*
+
+
+### Vim ###
+
+.netrwhist
+*~
+
+
+### SublimeText ###
+
+*.sublime-workspace

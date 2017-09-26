@@ -1,0 +1,6 @@
+[include]
+        # separate file for username / email / etc
+        path = ~/.gitconfig.local
+[core]
+        excludesfile = ~/.gitignore.global
+        editor = vim
