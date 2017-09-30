@@ -27,7 +27,7 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|vendor|log|tmp|images)|(\.git)$
 " jk is escape
 inoremap jk <esc>
 
-" hightlight the current line 
+" hightlight the current line
 set cursorline
 
 " tab = 2 spaces
@@ -88,6 +88,10 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
+    if exists("b:noStripWhitespace")
+        return
+    endif
+
     let save_cursor = getpos(".")
     let old_query = getreg('/')
     silent! %s/\s\+$//e
@@ -96,5 +100,6 @@ fun! CleanExtraSpaces()
 endfun
 
 if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+    autocmd FileType markdown let b:noStripWhitespace=1
+    autocmd BufWritePre * :call CleanExtraSpaces()
 endif
