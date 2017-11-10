@@ -19,4 +19,7 @@ Plug 'scrooloose/nerdtree'
 " sublime-type multiple selections
 Plug 'terryma/vim-multiple-cursors'
 
+" comment stuff out
+Plug 'tpope/vim-commentary'
+
 call plug#end()
