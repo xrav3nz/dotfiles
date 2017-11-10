@@ -4,6 +4,7 @@ set nocompatible " be iMproved
 source $HOME/.vim/plug.vim
 
 syntax enable
+set t_Co=256
 colorscheme monokai
 set encoding=utf8
 
@@ -19,8 +20,6 @@ let g:mapleader = ","
 nmap <leader>w :w!<cr>
 
 " ctrlp config
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_files = 0
 let g:ctrlp_max_depth = 40
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|vendor|log|tmp|images)|(\.git)$'
