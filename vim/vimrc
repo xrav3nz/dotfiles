@@ -37,6 +37,10 @@ set shiftwidth=2
 set expandtab
 set smarttab
 
+" do not wrap in the middle of a word
+set wrap
+set linebreak
+
 set smartindent
 set autoindent
 
