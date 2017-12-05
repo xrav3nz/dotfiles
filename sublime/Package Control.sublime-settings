@@ -1,0 +1,19 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"Babel",
+		"BeautifyLatex",
+		"CodeFormatter",
+		"Dockerfile Syntax Highlighting",
+		"GitHubinator",
+		"Handlebars",
+		"LaTeXTools",
+		"Package Control",
+		"SideBarEnhancements"
+	]
+}
