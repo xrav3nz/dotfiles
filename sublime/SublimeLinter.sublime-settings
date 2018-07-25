@@ -1,0 +1,17 @@
+// SublimeLinter Settings - User
+{
+    "debug": false,
+    "show_panel_on_save": "window",
+    "linters": {
+        "rubocop": {
+            "use_bundle_exec": true
+        }
+    },
+    "paths": {
+        "linux": [],
+        "osx": [
+            "~/.rbenv/shims"
+        ],
+        "windows": []
+    }
+}

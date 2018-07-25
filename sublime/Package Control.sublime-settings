@@ -8,13 +8,17 @@
 		"AdvancedNewFile",
 		"Babel",
 		"BeautifyLatex",
-		"CodeFormatter",
 		"Dockerfile Syntax Highlighting",
 		"GitHubinator",
 		"Handlebars",
+		"JsPrettier",
 		"LaTeXTools",
 		"Package Control",
 		"Sass",
-		"SideBarEnhancements"
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-eslint",
+		"SublimeLinter-rubocop",
+		"TypeScript"
 	]
 }
