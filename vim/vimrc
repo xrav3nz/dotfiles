@@ -16,8 +16,9 @@ set number
 let mapleader = ","
 let g:mapleader = ","
 
-" fast saving
 nmap <leader>w :w!<cr>
+nmap <leader>q :q<cr>
+nnoremap <leader>f :Files<cr>
 
 " ctrlp config
 let g:ctrlp_max_files = 0

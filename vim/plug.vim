@@ -10,8 +10,9 @@ call plug#begin('~/.vim/plugged')
 " monokai color scheme
 Plug 'xrav3nz/vim-monokai'
 
-" fuzzy file opener
-Plug 'ctrlpvim/ctrlp.vim'
+" powerful fuzzy finder
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " navigate files in a sidebar
 Plug 'scrooloose/nerdtree'
