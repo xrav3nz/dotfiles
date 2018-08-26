@@ -13,3 +13,8 @@
 ### SublimeText ###
 
 *.sublime-workspace
+
+
+### CTags ###
+
+tags

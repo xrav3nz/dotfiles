@@ -14,13 +14,37 @@ Plug 'xrav3nz/vim-monokai'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
+" search across all files
+Plug 'mileszs/ack.vim'
+
 " navigate files in a sidebar
 Plug 'scrooloose/nerdtree'
 
-" sublime-type multiple selections
-Plug 'terryma/vim-multiple-cursors'
-
-" comment stuff out
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+
+Plug 'itchyny/lightline.vim'
+
+" language/framework specific
+Plug 'jiangmiao/auto-pairs'
+Plug 'pangloss/vim-javascript'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+
+" ctags management
+Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
+
+" gutentags exclude
+let g:gutentags_ctags_exclude = ['.git', 'node_modules', 'log', 'vendor', 'temp', 'tmp', 'test']
+
+" use the silver searcher
+let g:ackprg = 'ag --vimgrep --smart-case'
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
+
+" since we are using lightline.vim
+set noshowmode

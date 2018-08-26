@@ -18,12 +18,8 @@ let g:mapleader = ","
 
 nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
+nmap <leader>ne :NERDTreeToggle<cr>
 nnoremap <leader>f :Files<cr>
-
-" ctrlp config
-let g:ctrlp_max_files = 0
-let g:ctrlp_max_depth = 40
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|vendor|log|tmp|images)|(\.git)$'
 
 " jk is escape
 inoremap jk <esc>
@@ -67,6 +63,9 @@ set ruler
 " show matching brackets
 set showmatch
 set mat=2
+
+set laststatus=2
+set hidden
 
 " no annoying sound on errors
 set noerrorbells
