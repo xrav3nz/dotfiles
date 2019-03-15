@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'xrav3nz/vim-monokai'
 
 " powerful fuzzy finder
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " search across all files
@@ -21,7 +21,6 @@ Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
 
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 
 Plug 'itchyny/lightline.vim'
 
@@ -38,6 +37,7 @@ call plug#end()
 
 " gutentags exclude
 let g:gutentags_ctags_exclude = ['.git', 'node_modules', 'log', 'vendor', 'temp', 'tmp', 'test']
+let g:gutentags_cache_dir = '~/.vim/tags'
 
 " use the silver searcher
 let g:ackprg = 'ag --vimgrep --smart-case'
