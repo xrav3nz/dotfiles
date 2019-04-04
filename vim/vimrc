@@ -5,8 +5,12 @@ source $HOME/.vim/plug.vim
 
 syntax enable
 set t_Co=256
-colorscheme monokai
 set encoding=utf8
+
+" gruvbox dark
+let g:gruvbox_contrast_dark = "hard"
+set background=dark
+colorscheme gruvbox
 
 " line numbers
 set number

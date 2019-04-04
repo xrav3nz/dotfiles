@@ -7,8 +7,8 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" monokai color scheme
-Plug 'xrav3nz/vim-monokai'
+" gruvbox color scheme
+Plug 'morhetz/gruvbox'
 
 " powerful fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
