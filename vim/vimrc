@@ -98,6 +98,13 @@ set nobackup
 set nowb
 set noswapfile
 
+" use <Tab> to cycle through windows
+nnoremap <Tab> <C-w>w
+nnoremap <S-Tab> <C-w>W
+
+" switch to last opened buffer
+nmap <Leader><Leader> <C-^>
+
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
