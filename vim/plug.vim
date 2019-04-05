@@ -30,6 +30,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 
+" syntax linting
+Plug 'w0rp/ale'
+
 " ctags management
 Plug 'ludovicchabant/vim-gutentags'
 
@@ -48,3 +51,6 @@ cnoreabbrev AG Ack
 
 " since we are using lightline.vim
 set noshowmode
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_linters_explicit = 1
+let g:ale_set_signs = 0
