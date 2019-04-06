@@ -22,8 +22,6 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'tpope/vim-commentary'
 
-Plug 'itchyny/lightline.vim'
-
 " language/framework specific
 Plug 'jiangmiao/auto-pairs'
 Plug 'pangloss/vim-javascript'
@@ -49,8 +47,6 @@ cnoreabbrev aG Ack
 cnoreabbrev Ag Ack
 cnoreabbrev AG Ack
 
-" since we are using lightline.vim
-set noshowmode
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters_explicit = 1
 let g:ale_set_signs = 0

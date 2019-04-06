@@ -86,10 +86,7 @@ set laststatus=2
 set hidden
 
 " no annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
+set belloff=all
 
 " properly disbale sound on errors on MacVim
 if has("gui_macvim")
@@ -128,3 +125,33 @@ if has("autocmd")
     autocmd FileType markdown let b:noStripWhitespace=1
     autocmd BufWritePre * :call CleanExtraSpaces()
 endif
+
+function! AleStatus() abort
+   let l:counts = ale#statusline#Count(bufnr(''))
+   let l:all_errors = l:counts.error + l:counts.style_error
+   let l:all_non_errors = l:counts.total - l:all_errors
+   return l:counts.total == 0 ? '' : printf(
+         \  ' W:%d E:%d ',
+         \  l:all_non_errors,
+         \  l:all_errors
+         \)
+endfunction
+
+" status line
+set statusline=
+" left hand side
+set statusline=(\ %f\ )             " filepath
+set statusline+=%M                  " modified?
+set statusline+=\ %r                " readonly?
+set statusline+=\ %h                " help file?
+" right hand side
+set statusline+=%="
+set statusline+=%#GruvboxRedSign#%{AleStatus()}%*
+set statusline+=\ %y                " file type
+set statusline+=\ %l/%L             " line number / line count
+set statusline+=,%v                 " virtual column number
+
+set shortmess+=W                    " don't show "written" when writing
+set shortmess+=I                    " disable splash screen
+
+let &t_ut=''
