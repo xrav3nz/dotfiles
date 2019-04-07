@@ -23,7 +23,8 @@ let g:mapleader = ","
 nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 nmap <leader>ne :NERDTreeToggle<cr>
-nnoremap <leader>f :Files<cr>
+nnoremap <expr> <leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
+
 
 nnoremap <leader>af :ALEFix<CR>
 nnoremap <leader>an :ALENextWrap<CR>
