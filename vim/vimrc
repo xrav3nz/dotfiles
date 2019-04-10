@@ -38,6 +38,9 @@ nmap <leader>sj :rightbelow split<CR>
 " jk is escape
 inoremap jk <esc>
 
+" selecte pasted text
+nnoremap gp `[v`]
+
 " hightlight the current line
 set cursorline
 
@@ -98,6 +101,12 @@ endif
 set nobackup
 set nowb
 set noswapfile
+
+" enable mouse for [a]ll modes
+set mouse=a
+
+" clipboard sharing
+set clipboard=unnamed
 
 " use <Tab> to cycle through windows
 nnoremap <Tab> <C-w>w
