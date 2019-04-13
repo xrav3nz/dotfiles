@@ -27,6 +27,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
+Plug 'mattn/emmet-vim'
 
 " syntax linting
 Plug 'w0rp/ale'
