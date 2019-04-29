@@ -5,6 +5,7 @@ source $HOME/.vim/plug.vim
 
 syntax enable
 set t_Co=256
+set termguicolors
 set encoding=utf8
 
 " gruvbox dark
@@ -24,7 +25,7 @@ nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 nmap <leader>ne :NERDTreeToggle<cr>
 nnoremap <expr> <leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
-
+nnoremap <leader>t :Tags<CR>
 
 nnoremap <leader>af :ALEFix<CR>
 nnoremap <leader>an :ALENextWrap<CR>
