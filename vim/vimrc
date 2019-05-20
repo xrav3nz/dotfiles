@@ -109,10 +109,6 @@ set mouse=a
 " clipboard sharing
 set clipboard=unnamed
 
-" use <Tab> to cycle through windows
-nnoremap <Tab> <C-w>w
-nnoremap <S-Tab> <C-w>W
-
 " switch to last opened buffer
 nmap <Leader><Leader> <C-^>
 
