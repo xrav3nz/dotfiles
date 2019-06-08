@@ -36,6 +36,9 @@ Plug 'w0rp/ale'
 " ctags management
 Plug 'ludovicchabant/vim-gutentags'
 
+" navigate between tmux & vim with C-hjkl
+Plug 'christoomey/vim-tmux-navigator'
+
 call plug#end()
 
 " gutentags exclude
