@@ -39,6 +39,9 @@ Plug 'ludovicchabant/vim-gutentags'
 " navigate between tmux & vim with C-hjkl
 Plug 'christoomey/vim-tmux-navigator'
 
+" manipulate (), [], {}, etc easily
+Plug 'tpope/vim-surround'
+
 call plug#end()
 
 " gutentags exclude
