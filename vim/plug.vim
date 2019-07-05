@@ -28,7 +28,17 @@ Plug 'pangloss/vim-javascript'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'mattn/emmet-vim'
+Plug 'HerringtonDarkholme/yats.vim'
+
+" full LSP support
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" {{{
+  let g:coc_global_extensions = ['coc-eslint', 'coc-tsserver']
+  nmap <leader>cn <Plug>(coc-diagnostic-next)
+  nmap <leader>cf <Plug>(coc-fix-current)
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gr <Plug>(coc-references)
+" }}}
 
 " syntax linting
 Plug 'w0rp/ale'

@@ -1,8 +1,5 @@
 set nocompatible " be iMproved
 
-" install plugins
-source $HOME/.vim/plug.vim
-
 syntax enable
 set t_Co=256
 set termguicolors
@@ -162,3 +159,6 @@ set shortmess+=W                    " don't show "written" when writing
 set shortmess+=I                    " disable splash screen
 
 let &t_ut=''
+
+" install plugin
+source $HOME/.vim/plug.vim
