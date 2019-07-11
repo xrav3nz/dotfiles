@@ -5,11 +5,6 @@ set t_Co=256
 set termguicolors
 set encoding=utf8
 
-" gruvbox dark
-let g:gruvbox_contrast_dark = "hard"
-set background=dark
-colorscheme gruvbox
-
 " line numbers
 set number
 
@@ -18,14 +13,14 @@ set number
 let mapleader = ","
 let g:mapleader = ","
 
+" jk is escape
+inoremap jk <esc>
+
 nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
-nmap <leader>ne :NERDTreeToggle<cr>
-nnoremap <expr> <leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
-nnoremap <leader>t :Tags<CR>
 
-nnoremap <leader>af :ALEFix<CR>
-nnoremap <leader>an :ALENextWrap<CR>
+" [c]lear [s]earches
+nnoremap <silent> <leader>cs :nohlsearch<CR>
 
 " splits - <leader>[s]plit + hjkl
 nmap <leader>sh :leftabove  vsplit<CR>
@@ -33,11 +28,14 @@ nmap <leader>sl :rightbelow vsplit<CR>
 nmap <leader>sk :leftabove  split<CR>
 nmap <leader>sj :rightbelow split<CR>
 
-" jk is escape
-inoremap jk <esc>
-
 " selecte pasted text
 nnoremap gp `[v`]
+
+" switch to last opened buffer
+nmap <Leader><Leader> <C-^>
+
+" the default 4000 is way too long
+set updatetime=750
 
 " hightlight the current line
 set cursorline
@@ -66,15 +64,8 @@ set lazyredraw
 set incsearch
 set hlsearch
 
-" Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
-endif
-
-" ignore case when searching
+" only do case sensitive search when search pattern contains uppercase letter
 set ignorecase
-
-" trying to be smart about cases, when searching
 set smartcase
 
 " always show current position
@@ -90,11 +81,6 @@ set hidden
 " no annoying sound on errors
 set belloff=all
 
-" properly disbale sound on errors on MacVim
-if has("gui_macvim")
-    autocmd GUIEnter * set vb t_vb=
-endif
-
 " turn backup off, since most stuff is in SVN, git, etc anyway
 set nobackup
 set nowb
@@ -105,9 +91,6 @@ set mouse=a
 
 " clipboard sharing
 set clipboard=unnamed
-
-" switch to last opened buffer
-nmap <Leader><Leader> <C-^>
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif

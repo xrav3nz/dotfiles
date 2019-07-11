@@ -13,12 +13,28 @@ Plug 'morhetz/gruvbox'
 " powerful fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" {{{
+  nnoremap <expr> <leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
+  nnoremap <leader>F :Files<CR>
+  nnoremap <leader>t :Tags<CR>
+" }}}
+
 
 " search across all files
 Plug 'mileszs/ack.vim'
+" {{{
+  let g:ackprg = 'ag --vimgrep --smart-case'
+  cnoreabbrev ag Ack
+  cnoreabbrev aG Ack
+  cnoreabbrev Ag Ack
+  cnoreabbrev AG Ack
+" }}}
 
 " navigate files in a sidebar
 Plug 'scrooloose/nerdtree'
+" {{{
+  nmap <leader>ne :NERDTreeToggle<cr>
+" }}}
 
 Plug 'tpope/vim-commentary'
 
@@ -42,9 +58,22 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " syntax linting
 Plug 'w0rp/ale'
+" {{{
+  let g:ale_lint_on_text_changed = 'never'
+  let g:ale_linters_explicit = 1
+  let g:ale_set_signs = 0
+
+  nnoremap <leader>af :ALEFix<CR>
+  nnoremap <leader>an :ALENextWrap<CR>
+" }}}
+
 
 " ctags management
 Plug 'ludovicchabant/vim-gutentags'
+" {{{
+  let g:gutentags_ctags_exclude = ['.git', 'node_modules', 'log', 'vendor', 'temp', 'tmp', 'test']
+  let g:gutentags_cache_dir = '~/.vim/tags'
+" }}}
 
 " navigate between tmux & vim with C-hjkl
 Plug 'christoomey/vim-tmux-navigator'
@@ -54,17 +83,6 @@ Plug 'tpope/vim-surround'
 
 call plug#end()
 
-" gutentags exclude
-let g:gutentags_ctags_exclude = ['.git', 'node_modules', 'log', 'vendor', 'temp', 'tmp', 'test']
-let g:gutentags_cache_dir = '~/.vim/tags'
-
-" use the silver searcher
-let g:ackprg = 'ag --vimgrep --smart-case'
-cnoreabbrev ag Ack
-cnoreabbrev aG Ack
-cnoreabbrev Ag Ack
-cnoreabbrev AG Ack
-
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_linters_explicit = 1
-let g:ale_set_signs = 0
+let g:gruvbox_contrast_dark = "hard"
+set background=dark
+colorscheme gruvbox
