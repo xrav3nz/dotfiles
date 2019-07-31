@@ -1,8 +1,7 @@
 [include]
-        # separate file for username / email / etc
-        path = ~/.config/git/config.local
+  # separate file for username / email / etc
+  path = ~/.config/git/config.local
 [core]
-        excludesfile = ~/.config/git/gitignore.global
-        editor = vim
+  excludesfile = ~/.config/git/gitignore.global
 [merge]
-	conflictstyle = diff3
+  conflictstyle = diff3
