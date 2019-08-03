@@ -16,7 +16,8 @@ Plug 'junegunn/fzf.vim'
 " {{{
   nnoremap <expr> <leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
   nnoremap <leader>F :Files<CR>
-  nnoremap <leader>t :Tags<CR>
+  nnoremap <leader>t :BTags<CR>
+  nnoremap <leader>b :Buffer<CR>
 " }}}
 
 
