@@ -3,5 +3,7 @@
   path = ~/.config/git/config.local
 [core]
   excludesfile = ~/.config/git/gitignore.global
+[commit]
+  verbose = true
 [merge]
   conflictstyle = diff3
