@@ -82,6 +82,8 @@ Plug 'christoomey/vim-tmux-navigator'
 " manipulate (), [], {}, etc easily
 Plug 'tpope/vim-surround'
 
+Plug 'tpope/vim-unimpaired'
+
 call plug#end()
 
 let g:gruvbox_contrast_dark = "hard"
