@@ -92,6 +92,9 @@ set mouse=a
 " clipboard sharing
 set clipboard=unnamedplus
 
+" 80 char code width is growing on me
+set colorcolumn=80
+
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
