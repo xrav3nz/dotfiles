@@ -81,8 +81,13 @@ zplug "zsh-users/zsh-completions"
 
 # Bind UP/DOWN in insert mode and k/j in normal mode to history search.
 zplug "zsh-users/zsh-history-substring-search", defer:3
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+if [[ "$OSTYPE" == darwin* ]]; then
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+else
+  bindkey "$terminfo[kcuu1]" history-substring-search-up
+  bindkey "$terminfo[kcud1]" history-substring-search-down
+fi
 bindkey -M vicmd "k" history-substring-search-up
 bindkey -M vicmd "j" history-substring-search-down
 
