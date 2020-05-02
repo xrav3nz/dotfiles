@@ -95,6 +95,10 @@ set clipboard=unnamedplus
 " 80 char code width is growing on me
 set colorcolumn=80
 
+" Maintain undo history between sessions
+set undofile
+set undodir=~/.vim/undodir
+
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
