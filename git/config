@@ -1,9 +1,13 @@
+[alias]
+  ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
+[commit]
+  verbose = true
+[core]
+  excludesfile = ~/.config/git/gitignore.global
 [include]
   # separate file for username / email / etc
   path = ~/.config/git/config.local
-[core]
-  excludesfile = ~/.config/git/gitignore.global
-[commit]
-  verbose = true
+[init]
+  templatedir = ~/.config/git/templates
 [merge]
   conflictstyle = diff3

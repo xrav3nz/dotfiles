@@ -70,13 +70,6 @@ Plug 'w0rp/ale'
 " }}}
 
 
-" ctags management
-Plug 'ludovicchabant/vim-gutentags'
-" {{{
-  let g:gutentags_ctags_exclude = ['.git', 'node_modules', 'log', 'vendor', 'temp', 'tmp', 'test']
-  let g:gutentags_cache_dir = '~/.vim/tags'
-" }}}
-
 " navigate between tmux & vim with C-hjkl
 Plug 'christoomey/vim-tmux-navigator'
 
