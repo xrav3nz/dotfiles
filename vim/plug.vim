@@ -85,6 +85,9 @@ Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-unimpaired'
 
+" unix helpers
+Plug 'tpope/vim-eunuch'
+
 call plug#end()
 
 let g:gruvbox_contrast_dark = "hard"
