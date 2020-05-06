@@ -31,6 +31,9 @@ nmap <leader>sj :rightbelow split<CR>
 " selecte pasted text
 nnoremap gp `[v`]
 
+" yank till end of line
+nnoremap Y y$
+
 " switch to last opened buffer
 nmap <Leader><Leader> <C-^>
 
