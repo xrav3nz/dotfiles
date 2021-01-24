@@ -81,6 +81,20 @@ Plug 'tpope/vim-unimpaired'
 " unix helpers
 Plug 'tpope/vim-eunuch'
 
+Plug 'ojroques/vim-oscyank'
+nnoremap <leader>yy "+yy <bar> :OSCYankReg " <CR>
+nnoremap <leader>y :set operatorfunc=OSCYankOperator<cr>g@
+vnoremap <leader>y :<c-u>call OSCYankOperator(visualmode())<cr>
+function! OSCYankOperator(type)
+ if a:type ==? 'v'
+    execute "normal! `<v`>y"
+  elseif a:type ==# 'char'
+    execute "normal! `[v`]y"
+  endif
+
+  call YankOSC52(getreg('@'))
+endfunction
+
 call plug#end()
 
 let g:gruvbox_contrast_dark = "hard"

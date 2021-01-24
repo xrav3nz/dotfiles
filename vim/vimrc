@@ -92,8 +92,8 @@ set noswapfile
 " enable mouse for [a]ll modes
 set mouse=a
 
-" clipboard sharing
-set clipboard=unnamedplus
+" disable clipboard sharing
+set clipboard=
 
 " 80 char code width is growing on me
 set colorcolumn=80
