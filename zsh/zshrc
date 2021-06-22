@@ -47,6 +47,7 @@ alias vi="nvim"
 export EDITOR='nvim'
 
 export PATH=$HOME/.local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
 
 # rbenv - ruby version manager
 eval "$(rbenv init -)"

@@ -46,6 +46,12 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'mattn/emmet-vim'
+" {{{
+  let g:ruby_indent_assignment_style = 'variable'
+" }}}
 
 " full LSP support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -98,5 +104,6 @@ endfunction
 call plug#end()
 
 let g:gruvbox_contrast_dark = "hard"
+let g:gruvbox_contrast_light = "soft"
 set background=dark
 colorscheme gruvbox
