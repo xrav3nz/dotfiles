@@ -21,13 +21,6 @@ Plug 'junegunn/fzf.vim'
 " }}}
 
 
-" search across all files
-Plug 'mileszs/ack.vim'
-" {{{
-  let g:ackprg = 'ag --vimgrep --smart-case'
-  cnoreabbrev ag Ack
-" }}}
-
 " navigate files in a sidebar
 Plug 'scrooloose/nerdtree'
 " {{{
