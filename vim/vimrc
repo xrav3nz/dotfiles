@@ -23,10 +23,17 @@ nmap <leader>q :q<cr>
 nnoremap <silent> <leader>cs :nohlsearch<CR>
 
 " splits - <leader>[s]plit + hjkl
-nmap <leader>sh :leftabove  vsplit<CR>
-nmap <leader>sl :rightbelow vsplit<CR>
-nmap <leader>sk :leftabove  split<CR>
-nmap <leader>sj :rightbelow split<CR>
+if exists('g:vscode')
+  nmap <leader>sh <Cmd>call VSCodeNotify('workbench.action.splitEditorLeft')<CR>
+  nmap <leader>sl <Cmd>call VSCodeNotify('workbench.action.splitEditorRight')<CR>
+  nmap <leader>sk <Cmd>call VSCodeNotify('workbench.action.splitEditorUp')<CR>
+  nmap <leader>sj <Cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>
+else
+  nmap <leader>sh :leftabove  vsplit<CR>
+  nmap <leader>sl :rightbelow vsplit<CR>
+  nmap <leader>sk :leftabove  split<CR>
+  nmap <leader>sj :rightbelow split<CR>
+endif
 
 " selecte pasted text
 nnoremap gp `[v`]
@@ -35,13 +42,18 @@ nnoremap gp `[v`]
 nnoremap Y y$
 
 " switch to last opened buffer
-nmap <Leader><Leader> <C-^>
+if exists('g:vscode')
+  nmap <Leader><Leader> <Cmd>call VSCodeCall('workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup')<CR>
+else
+  nmap <Leader><Leader> <C-^>
+endif
 
 " the default 4000 is way too long
 set updatetime=750
 
-" hightlight the current line
+" hightlight the current line & column
 set cursorline
+set cursorcolumn
 
 " tab = 2 spaces
 set tabstop=2
@@ -51,8 +63,9 @@ set expandtab
 set smarttab
 
 " do not wrap in the middle of a word
-set wrap
 set linebreak
+" experiment with no wrapping
+set nowrap
 
 set smartindent
 set autoindent
@@ -103,7 +116,9 @@ set undofile
 set undodir=~/.vim/undodir
 
 " Return to last edit position when opening files (You want this!)
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+if !exists('g:vscode')
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
@@ -118,7 +133,7 @@ fun! CleanExtraSpaces()
     call setreg('/', old_query)
 endfun
 
-if has("autocmd")
+if has("autocmd") && !exists('g:vscode')
     autocmd FileType markdown let b:noStripWhitespace=1
     autocmd BufWritePre * :call CleanExtraSpaces()
 endif
@@ -134,22 +149,23 @@ function! AleStatus() abort
          \)
 endfunction
 
-" status line
-set statusline=
-" left hand side
-set statusline=(\ %f\ )             " filepath
-set statusline+=%M                  " modified?
-set statusline+=\ %r                " readonly?
-set statusline+=\ %h                " help file?
-" right hand side
-set statusline+=%="
-set statusline+=%#GruvboxRedSign#%{AleStatus()}%*
-set statusline+=\ %y                " file type
-set statusline+=\ %l/%L             " line number / line count
-set statusline+=,%v                 " virtual column number
+if !exists('g:vscode')
+  set statusline=
+  " left hand side
+  set statusline=(\ %f\ )             " filepath
+  set statusline+=%M                  " modified?
+  set statusline+=\ %r                " readonly?
+  set statusline+=\ %h                " help file?
+  " right hand side
+  set statusline+=%="
+  set statusline+=%#GruvboxRedSign#%{AleStatus()}%*
+  set statusline+=\ %y                " file type
+  set statusline+=\ %l/%L             " line number / line count
+  set statusline+=,%v                 " virtual column number
 
-set shortmess+=W                    " don't show "written" when writing
-set shortmess+=I                    " disable splash screen
+  set shortmess+=W                    " don't show "written" when writing
+  set shortmess+=I                    " disable splash screen
+endif
 
 let &t_ut=''
 

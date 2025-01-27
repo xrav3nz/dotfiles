@@ -5,20 +5,11 @@
 	],
 	"installed_packages":
 	[
-		"AdvancedNewFile",
-		"Babel",
-		"BeautifyLatex",
-		"Dockerfile Syntax Highlighting",
-		"GitHubinator",
-		"Handlebars",
 		"JsPrettier",
-		"LaTeXTools",
-		"Package Control",
 		"Sass",
-		"SideBarEnhancements",
 		"SublimeLinter",
 		"SublimeLinter-eslint",
 		"SublimeLinter-rubocop",
-		"TypeScript"
-	]
+		"TypeScript",
+	],
 }

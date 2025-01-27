@@ -1,5 +1,20 @@
+# Handle Mac platforms
+CPU=$(uname -p)
+if [[ "$CPU" == "arm" ]]; then
+  # Apple Silicon Brew
+  export PATH=/opt/homebrew/bin:$PATH
+  export PATH=/opt/homebrew/sbin:$PATH
+  # Intel Brew
+  export PATH=/usr/local/sbin:$PATH
+  alias oldbrew=/usr/local/bin/brew
+else
+  export PATH="/usr/local/bin:$PATH"
+fi
+
+export PATH=$HOME/.local/bin:$PATH
+
 if which tmux 2>&1 >/dev/null; then
-  if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
+  if [ $TERM != "screen-256color" ] && [ $TERM != "screen" ] && [ -z "$VSCODE_INJECTION" ]; then
     tmux attach -t general || tmux new -s general
   fi
 fi
@@ -40,21 +55,20 @@ setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
 # Load fzf if installed
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh && source <(fzf --zsh)
 
 alias vim="nvim"
 alias vi="nvim"
 export EDITOR='nvim'
 
-export PATH=$HOME/.local/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
-
 # rbenv - ruby version manager
 eval "$(rbenv init -)"
 
 # nvm - node version managaer
-export NVM_DIR=~/.nvm
-source $NVM_DIR/nvm.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 
 #
 # ls color
@@ -83,6 +97,8 @@ zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
 # I grew used to the aliases
 zplug "plugins/git", from:oh-my-zsh
+alias gcof='gco $(gb | fzf)'
+alias lg='lazygit'
 
 zplug "zsh-users/zsh-completions"
 
@@ -95,12 +111,9 @@ else
   bindkey "$terminfo[kcuu1]" history-substring-search-up
   bindkey "$terminfo[kcud1]" history-substring-search-down
 fi
-bindkey -M vicmd "k" history-substring-search-up
-bindkey -M vicmd "j" history-substring-search-down
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
 
 if ! zplug check --verbose; then; zplug install; fi
 
 zplug load --verbose
-

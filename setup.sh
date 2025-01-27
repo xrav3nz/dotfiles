@@ -5,6 +5,8 @@ DOT_PATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 ln -sfn "${DOT_PATH}/zsh/zshrc" ~/.zshrc
 
 ln -sfn "${DOT_PATH}/tmux/tmux.conf" ~/.tmux.conf
+rm -rf ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 rm -rf ~/.vim
 ln -sfn "${DOT_PATH}/vim" ~/.vim
