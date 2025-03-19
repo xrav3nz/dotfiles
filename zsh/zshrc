@@ -43,15 +43,17 @@ function () {
 
 export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
-export HISTFILE="$HOME/.zsh_history"
+setopt inc_append_history
+HISTFILE=${XDG_DATA_HOME:-$HOME/.local/share}/zsh/zsh_history
+[[ -d $HISTFILE:h ]] || mkdir -p $HISTFILE:h
+SAVEHIST=100000  # History file size
+HISTSIZE=20000   # Session history size
 
-# Do not display a line previously found.
+setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FIND_NO_DUPS
-# Delete old recorded entry if new entry is a duplicate.
 setopt HIST_IGNORE_ALL_DUPS
-# Write to the history file immediately, not when the shell exits.
+setopt HIST_IGNORE_SPACE
 setopt INC_APPEND_HISTORY
-# Share history between all sessions.
 setopt SHARE_HISTORY
 
 # Load fzf if installed
