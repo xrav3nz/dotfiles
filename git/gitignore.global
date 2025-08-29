@@ -1,15 +1,17 @@
 ### macOS ###
-
 .DS_Store
 ._*
 
-
 ### Vim ###
-
 .netrwhist
 *~
 
-
 ### SublimeText ###
-
 *.sublime-workspace
+
+### Claude Code ###
+CLAUDE.local.md
+.claude/settings.local.json
+
+### Git ###
+.worktrees-kzh
