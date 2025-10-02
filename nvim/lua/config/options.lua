@@ -15,3 +15,8 @@ vim.g.lazyvim_ruby_formatter = "standardrb"
 
 vim.g.lazyvim_prettier_needs_config = true
 vim.g.lazyvim_eslint_auto_format = true
+
+-- Revert some LazyVim options
+
+-- I am used to scrolloff=0 so that H is the first line of the window.
+vim.opt.scrolloff = 0

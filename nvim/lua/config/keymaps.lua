@@ -39,3 +39,7 @@ if vim.g.vscode then
     "<cmd>lua require('vscode').call('workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup')<CR>"
   )
 end
+
+-- Revert some LazyVim keybindings
+vim.keymap.del("n", "H")
+vim.keymap.del("n", "L")
