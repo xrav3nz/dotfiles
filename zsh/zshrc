@@ -116,3 +116,11 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:3
 if ! zplug check --verbose; then; zplug install; fi
 
 zplug load --verbose
+
+# pnpm
+export PNPM_HOME="/Users/kylezhao/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
