@@ -63,6 +63,9 @@ alias vim="nvim"
 alias vi="nvim"
 export EDITOR='nvim'
 
+alias mycodex="codex --yolo"
+alias myclaude="claude --dangerously-skip-permissions"
+
 # mise - manages installations of programming language runtimes
 eval "$(~/.local/bin/mise activate zsh)"
 
