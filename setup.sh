@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-DOT_PATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+DOT_PATH="$(
+  cd "$(dirname "$0")" >/dev/null 2>&1
+  pwd -P
+)"
 
 ln -sfn "${DOT_PATH}/zsh/zshrc" ~/.zshrc
 
@@ -21,3 +24,9 @@ ln -sfn "${DOT_PATH}/nvim" ~/.config/nvim
 
 rm -rf ~/.config/kitty
 ln -sfn "${DOT_PATH}/kitty" ~/.config/kitty
+
+rm -rf ~/.config/aerospace
+ln -sfn "${DOT_PATH}/aerospace" ~/.config/aerospace
+
+rm -rf ~/.config/borders
+ln -sfn "${DOT_PATH}/borders" ~/.config/borders
