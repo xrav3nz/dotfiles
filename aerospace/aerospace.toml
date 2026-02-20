@@ -39,7 +39,7 @@ on-focus-changed = [
     # Remove borders when there is only one window in the focused workspace.
     # https://github.com/nikitabobko/AeroSpace/issues/438 tracks the feature
     # request to allow detecting fullscreen layout.
-    'exec-and-forget [ $(aerospace list-windows --workspace focused | wc -l) -eq 1 ] && borders width=0.0 || borders width=6.0',
+    'exec-and-forget [ $(aerospace list-windows --workspace focused | wc -l) -eq 1 ] && borders width=0.0 || borders width=10.0',
 ]
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
