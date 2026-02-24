@@ -106,6 +106,7 @@ automatically-unhide-macos-hidden-apps = true
     # See: https://nikitabobko.github.io/AeroSpace/commands#fullscreen
     # [z]oom to match tmux
     alt-z = 'fullscreen'
+    alt-p = 'exec-and-forget shortcuts run "Play/Pause"'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
     alt-shift-h = 'move left'
@@ -138,7 +139,6 @@ automatically-unhide-macos-hidden-apps = true
     alt-m = 'workspace M'
     alt-n = 'workspace N'
     alt-o = 'workspace O'
-    alt-p = 'workspace P'
     alt-q = 'workspace Q'
     alt-r = 'workspace R'
     alt-s = 'workspace S'
@@ -170,7 +170,6 @@ automatically-unhide-macos-hidden-apps = true
     alt-shift-m = 'move-node-to-workspace M'
     alt-shift-n = 'move-node-to-workspace N'
     alt-shift-o = 'move-node-to-workspace O'
-    alt-shift-p = 'move-node-to-workspace P'
     alt-shift-q = 'move-node-to-workspace Q'
     alt-shift-r = 'move-node-to-workspace R'
     alt-shift-s = 'move-node-to-workspace S'
