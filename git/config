@@ -4,13 +4,19 @@
   verbose = true
 [core]
   excludesfile = ~/.config/git/gitignore.global
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+  dark = true
 [include]
   # separate file for username / email / etc
   path = ~/.config/git/config.local
 [init]
   templatedir = ~/.config/git/templates
 [merge]
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -19,3 +25,9 @@
 [user]
 	name = Kyle
 	email = github@kylezh.com
+[credential "https://github.com"]
+	helper = 
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !gh auth git-credential
