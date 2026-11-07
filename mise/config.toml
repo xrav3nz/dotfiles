@@ -2,8 +2,8 @@
 # Machine-specific overrides go in ~/.config/mise/conf.d/*.toml (untracked).
 [tools]
 # runtimes
-node = "22"
-ruby = "3.4.8"
+node = "26"
+ruby = "4.0"
 
 # CLI tools (zsh / git / nvim / LazyVim depend on these)
 neovim = "latest"      # apt's neovim is too old for LazyVim
